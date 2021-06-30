@@ -1,3 +1,8 @@
+#Irina Kaminsky Castillo
+#Axel Uzeta Gómez
+#Edgar Zúñiga Sánchez
+#Regina Vega Francia
+
 from turtle import *
 from random import randrange
 from freegames import square, vector
