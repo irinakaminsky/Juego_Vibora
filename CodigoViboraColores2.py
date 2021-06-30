@@ -1,26 +1,34 @@
-#Axel Gael Uzeta Gomez
-
 from turtle import *
 from random import randrange
 from freegames import square, vector
-import numpy
+import random
+
+# Axel Uzeta
+# Irina Kaminsky
+
+# inciso dos: colores
+colors=['blue', 'green', 'purple','yellow','orange']
+bodyc=random.choice(colors)
+foodc=random.choice(colors)
+if foodc==bodyc:
+    foodc=random.choice(colors)
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
-COLORS = ['blue','black','orange','purple','yellow']
-Vibora = numpy.random.choice(COLORS, 1)
-Comida = numpy.random.choice(COLORS, 1)
-
-if Vibora == Comida:
-    Vibora = numpy.random.choice(COLORS, 1)
-    Comida = numpy.random.choice(COLORS, 1)
+def moveFood():
+    food.x = randrange(-15, 15) * 10
+    food.y = randrange(-15, 15) * 10
+    ontimer(moveFood, 4500)
 
 def change(x, y):
     "Change snake direction."
     aim.x = x
     aim.y = y
+    #agregamos funcion random para randomizar la posición de la comida (inciso 1)
+    food.x = randrange(-15, 15) * 1
+    food.y = randrange(-15, 15) * 1
 
 def inside(head):
     "Return True if head inside boundaries."
@@ -48,9 +56,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, Vibora)
+        square(body.x, body.y, 9, bodyc)
 
-    square(food.x, food.y, 9, Comida)
+    square(food.x, food.y, 9, foodc)
     update()
     ontimer(move, 100)
 
@@ -62,5 +70,7 @@ onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
+moveFood()
 move()
 done()
+
