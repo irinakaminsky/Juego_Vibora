@@ -5,6 +5,7 @@ import random
 
 # Axel Uzeta
 # Irina Kaminsky
+# Edgar Zúñiga
 
 # inciso dos: colores
 colors=['blue', 'green', 'purple','yellow','orange']
